@@ -1,0 +1,15 @@
+PROJECT(proto)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+SET(CMAKE_CXX_FLAGS "-g -Wall -Werror -std=c++11")
+
+ADD_SUBDIRECTORY(addr-cpp)
+
+#ADD_EXECUTABLE(write write.cpp)
+#ADD_EXECUTABLE(read read.cpp)
+ADD_EXECUTABLE(google_read google_read.cpp)
+
+#TARGET_LINK_LIBRARIES(write addr ${PROTOBUF_LIBRARY})
+#TARGET_LINK_LIBRARIES(read addr ${PROTOBUF_LIBRARY})
+TARGET_LINK_LIBRARIES(google_read addr ${PROTOBUF_LIBRARY})
+
+

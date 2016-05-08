@@ -1,0 +1,4 @@
+INCLUDE(FindProtobuf)
+FIND_PACKAGE(Protobuf REQUIRED)
+INCLUDE_DIRECTORIES(${PROTOBUF_INCLUDE_DIR})
+ADD_LIBRARY(addr addr.pb.h addr.pb.cc)
