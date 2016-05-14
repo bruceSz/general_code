@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -std=c++14 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/magical_decltype.dir/src/magical_decltype.cc.o  -o bin/magical_decltype  
