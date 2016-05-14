@@ -1,4 +1,0 @@
-/Users/brucesz/git/test/modern_c++/CMakeFiles/magical_decltype.dir
-/Users/brucesz/git/test/modern_c++/CMakeFiles/magical_auto.dir
-/Users/brucesz/git/test/modern_c++/CMakeFiles/vector_bool_magic.dir
-/Users/brucesz/git/test/modern_c++/CMakeFiles/biggest_int.dir

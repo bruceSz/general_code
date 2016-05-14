@@ -1,2 +1,0 @@
-/Users/brucesz/git/c11_test/protobuf/CMakeFiles/google_read.dir
-/Users/brucesz/git/c11_test/protobuf/addr-cpp/CMakeFiles/addr.dir
