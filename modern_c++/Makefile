@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /Users/brucesz/git/test/modern_c++
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.3.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/Cellar/cmake/3.3.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -148,6 +148,19 @@ magical_decltype: cmake_check_build_system
 magical_decltype/fast:
 	$(MAKE) -f CMakeFiles/magical_decltype.dir/build.make CMakeFiles/magical_decltype.dir/build
 .PHONY : magical_decltype/fast
+
+#=============================================================================
+# Target rules for targets named three_level_inherit
+
+# Build rule for target.
+three_level_inherit: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 three_level_inherit
+.PHONY : three_level_inherit
+
+# fast build rule for target.
+three_level_inherit/fast:
+	$(MAKE) -f CMakeFiles/three_level_inherit.dir/build.make CMakeFiles/three_level_inherit.dir/build
+.PHONY : three_level_inherit/fast
 
 #=============================================================================
 # Target rules for targets named vector_bool_magic
@@ -243,6 +256,33 @@ src/magical_decltype.cc.s:
 	$(MAKE) -f CMakeFiles/magical_decltype.dir/build.make CMakeFiles/magical_decltype.dir/src/magical_decltype.cc.s
 .PHONY : src/magical_decltype.cc.s
 
+src/three_level_inherit.o: src/three_level_inherit.cc.o
+
+.PHONY : src/three_level_inherit.o
+
+# target to build an object file
+src/three_level_inherit.cc.o:
+	$(MAKE) -f CMakeFiles/three_level_inherit.dir/build.make CMakeFiles/three_level_inherit.dir/src/three_level_inherit.cc.o
+.PHONY : src/three_level_inherit.cc.o
+
+src/three_level_inherit.i: src/three_level_inherit.cc.i
+
+.PHONY : src/three_level_inherit.i
+
+# target to preprocess a source file
+src/three_level_inherit.cc.i:
+	$(MAKE) -f CMakeFiles/three_level_inherit.dir/build.make CMakeFiles/three_level_inherit.dir/src/three_level_inherit.cc.i
+.PHONY : src/three_level_inherit.cc.i
+
+src/three_level_inherit.s: src/three_level_inherit.cc.s
+
+.PHONY : src/three_level_inherit.s
+
+# target to generate assembly for a file
+src/three_level_inherit.cc.s:
+	$(MAKE) -f CMakeFiles/three_level_inherit.dir/build.make CMakeFiles/three_level_inherit.dir/src/three_level_inherit.cc.s
+.PHONY : src/three_level_inherit.cc.s
+
 src/vector_bool_magic.o: src/vector_bool_magic.cc.o
 
 .PHONY : src/vector_bool_magic.o
@@ -276,11 +316,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... three_level_inherit"
 	@echo "... vector_bool_magic"
 	@echo "... magical_decltype"
 	@echo "... magical_auto"
-	@echo "... rebuild_cache"
 	@echo "... biggest_int"
 	@echo "... src/biggest_int.o"
 	@echo "... src/biggest_int.i"
@@ -291,6 +332,9 @@ help:
 	@echo "... src/magical_decltype.o"
 	@echo "... src/magical_decltype.i"
 	@echo "... src/magical_decltype.s"
+	@echo "... src/three_level_inherit.o"
+	@echo "... src/three_level_inherit.i"
+	@echo "... src/three_level_inherit.s"
 	@echo "... src/vector_bool_magic.o"
 	@echo "... src/vector_bool_magic.i"
 	@echo "... src/vector_bool_magic.s"
